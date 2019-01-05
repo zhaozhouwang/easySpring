@@ -1,0 +1,30 @@
+# Tomcat
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 8888
+
+name: Mr.One
+
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/one?useSSL=false
+    username: root
+    password: wzz137700
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1 FROM DUAL
+      idle-timeout: 10000
+
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:/com.lab.one.mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.lab.one.entity
