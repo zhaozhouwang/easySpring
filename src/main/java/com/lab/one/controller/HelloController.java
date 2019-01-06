@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/demo")
 public class HelloController {
 
+    //直接从application.yml配置文件中取值
     @Value("${name}")
     private String name;
 

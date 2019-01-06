@@ -10,7 +10,6 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -37,7 +36,7 @@ public class SwaggerConfig {
     /**
      * 研发测试地址(主要是给前端看的)
      */
-    private final String SIT = "192.168.10.253";
+    private final String SIT = "192.xxx.xx.xxx";
 
     /**
      * 本地地址(自测用)
