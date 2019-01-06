@@ -5,7 +5,7 @@ import com.lab.one.entity.User;
 
 /**
  * <p>
- *UserService接口
+ * UserService接口
  * </p>
  *
  * @author Mr.One
@@ -15,4 +15,9 @@ public interface UserService extends IService<User> {
 
     boolean insertUser(User user);
 
+
+    /**
+     * 根据id查询未被删除用户
+     */
+    User selectActiveById(String id);
 }

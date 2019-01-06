@@ -39,7 +39,7 @@ public class User extends BaseEntity {
      * PK
      */
     @TableId(value = "ID", type = IdType.UUID)
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty("id")
     private String id;
 
     /**

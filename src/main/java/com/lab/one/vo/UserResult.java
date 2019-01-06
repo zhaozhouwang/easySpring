@@ -16,6 +16,11 @@ import java.util.Date;
 @Data
 public class UserResult {
 
+    /**
+     * PK
+     */
+    private String id;
+
 
     /**
      * 真实姓名
