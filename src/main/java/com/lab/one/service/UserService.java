@@ -5,7 +5,7 @@ import com.lab.one.entity.User;
 
 /**
  * <p>
- *
+ *UserService接口
  * </p>
  *
  * @author Mr.One
