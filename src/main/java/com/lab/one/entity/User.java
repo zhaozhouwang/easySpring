@@ -30,7 +30,7 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @TableName("LAB_USER")
 public class User extends BaseEntity {
 

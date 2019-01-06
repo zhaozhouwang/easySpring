@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * MP Config
  * </p>
  *
- * @author wangzhaozhou
+ * @author Mr.One
  * @date 2019-01-06
  */
 

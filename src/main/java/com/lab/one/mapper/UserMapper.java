@@ -8,7 +8,7 @@ import com.lab.one.entity.User;
  * UserMapper接口
  * </p>
  *
- * @author wangzhaozhou
+ * @author Mr.One
  * @date 2018/12/25
  */
 public interface UserMapper extends BaseMapper<User> {

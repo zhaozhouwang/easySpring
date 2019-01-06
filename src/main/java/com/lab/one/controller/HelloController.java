@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * SayHello demo
  * </p>
  *
- * @author wangzhaozhou
+ * @author Mr.One
  * @date 2018/12/25
  */
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * </p>
  *
- * @author wangzhaozhou
+ * @author Mr.One
  * @date 2018/12/25
  */
 
@@ -46,7 +46,6 @@ public class UserController {
         return userService.insertUser(user) ? "success" : "fail";
         //TODO
     }
-
 
 
 }

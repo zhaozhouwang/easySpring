@@ -8,7 +8,7 @@ import com.lab.one.entity.User;
  *
  * </p>
  *
- * @author wangzhaozhou
+ * @author Mr.One
  * @date 2018/12/25
  */
 public interface UserService extends IService<User> {
