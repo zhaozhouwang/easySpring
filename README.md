@@ -2,7 +2,7 @@
 
 
 #开发工具:
-        MacBook Air + IDEA + Navicat Premium
+        macOS Mojave + IDEA + Navicat Premium
 
 
 #推荐使用IDEA
