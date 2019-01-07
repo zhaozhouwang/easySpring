@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.toolkit.StringUtils;
 import com.lab.one.controller.base.BaseController;
@@ -106,7 +105,7 @@ public class UserController extends BaseController {
         Integer[] pageInfo = getPageInfo();
         Page<User> page = new Page<>(pageInfo[0], pageInfo[1]);
 
-        return Response.success(userService.selectList(new EntityWrapper<>()));
+        return Response.success(userService.findUserList(page, param));
     }
 
 
