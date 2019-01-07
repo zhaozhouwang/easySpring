@@ -1,6 +1,19 @@
 package com.lab.one.controller;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.toolkit.StringUtils;
 import com.lab.one.controller.base.BaseController;
 import com.lab.one.entity.User;
@@ -8,13 +21,11 @@ import com.lab.one.enums.ResponseErrorEnum;
 import com.lab.one.service.UserService;
 import com.lab.one.utils.Response;
 import com.lab.one.vo.UserResult;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -84,14 +95,22 @@ public class UserController extends BaseController {
 
     //TODO 暂不做分页及条件查询,默认查全部,暂未封装成result对象
     @ApiOperation(value = "查询用户/获得用户列表", notes = "查询用户", response = UserResult.class)
-    @ApiImplicitParam(name = "queryParam", value = "查询条件,不传查全部", dataType = "String", paramType = "query")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "queryParam", value = "查询条件,不传查全部", dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "page", value = "当前页,不传默认第一页", dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "size", value = "当前页记录条数,不传默认10条", dataType = "String", paramType = "query")
+    })
     @GetMapping("")
     public Response queryUser() {
+        String param = request.getParameter("queryParam");
+        Integer[] pageInfo = getPageInfo();
+        Page<User> page = new Page<>(pageInfo[0], pageInfo[1]);
+
         return Response.success(userService.selectList(new EntityWrapper<>()));
     }
 
 
-    @ApiOperation(value = "获得单个用户", notes = "获得用户", response = UserResult.class)
+    @ApiOperation(value = "删除用户", notes = "删除用户", response = UserResult.class)
     @DeleteMapping("/{id}")
     public Response delUserById(@PathVariable(value = "id") String id) {
 

@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * User entity 
+ * User entity
  * </p>
  *
  * @author wangzhaozhou
@@ -47,7 +47,7 @@ public class User extends BaseEntity {
     /**
      * 真实姓名
      */
-    @TableField("NAME")
+    @TableField("REAL_NAME")
     @ApiModelProperty("真实姓名")
     private String name;
 
