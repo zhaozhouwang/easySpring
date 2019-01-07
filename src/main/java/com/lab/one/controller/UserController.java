@@ -112,8 +112,16 @@ public class UserController extends BaseController {
     @ApiOperation(value = "删除用户", notes = "删除用户", response = UserResult.class)
     @DeleteMapping("/{id}")
     public Response delUserById(@PathVariable(value = "id") String id) {
+        if (StringUtils.isEmpty(id)) {
+            return Response.fail(ResponseErrorEnum.ID_EMPITY_ERROR.getErrorDesc());
+        }
 
-        //todo
+        User user = userService.selectById(id);
+        if (user == null) {
+            return Response.fail(ResponseErrorEnum.USER_EXIST_ERROR.getErrorDesc());
+        }
+        user.setDelFag(1);
+        userService.updateById(user);
         return Response.success();
     }
 }
