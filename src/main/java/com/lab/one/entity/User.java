@@ -1,21 +1,23 @@
 package com.lab.one.entity;
 
+import java.util.Date;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.lab.one.entity.base.BaseEntity;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import org.hibernate.validator.constraints.NotBlank;
-
-import java.util.Date;
 
 /**
  * <p>
- * User entity
+ * User entity 
  * </p>
  *
  * @author wangzhaozhou
