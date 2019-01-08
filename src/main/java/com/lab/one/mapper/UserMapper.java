@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.lab.one.entity.User;
+import com.lab.one.vo.UserResult;
 
 /**
  * <p>
@@ -15,6 +16,5 @@ import com.lab.one.entity.User;
  */
 public interface UserMapper extends BaseMapper<User> {
 
-    List<User> queryUser(String queryParam);
-
+    List<UserResult> queryUser(String queryParam);
 }

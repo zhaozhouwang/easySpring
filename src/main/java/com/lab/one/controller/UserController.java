@@ -103,7 +103,7 @@ public class UserController extends BaseController {
     public Response queryUser() {
         String param = request.getParameter("queryParam");
         Integer[] pageInfo = getPageInfo();
-        Page<User> page = new Page<>(pageInfo[0], pageInfo[1]);
+        Page<UserResult> page = new Page<>(pageInfo[0], pageInfo[1]);
 
         return Response.success(userService.findUserList(page, param));
     }

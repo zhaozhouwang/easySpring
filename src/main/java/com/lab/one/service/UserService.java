@@ -3,6 +3,7 @@ package com.lab.one.service;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.lab.one.entity.User;
+import com.lab.one.vo.UserResult;
 
 /**
  * <p>
@@ -25,5 +26,5 @@ public interface UserService extends IService<User> {
     /**
      * 分页查询用户列表
      */
-    Page<User> findUserList(Page<User> page, String param);
+    Page<UserResult> findUserList(Page<UserResult> page, String param);
 }

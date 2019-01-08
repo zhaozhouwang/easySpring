@@ -1,8 +1,9 @@
 package com.lab.one.vo;
 
-import lombok.Data;
-
 import java.util.Date;
+
+import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 
 @Data
+@Accessors(chain = true)
 public class UserResult {
 
     /**
