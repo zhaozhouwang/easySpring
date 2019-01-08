@@ -28,14 +28,13 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * <p>
- *
+ * UserController CRUD
  * </p>
  *
  * @author Mr.One
  * @date 2018/12/25
  */
 
-//@Api(value = "用户管理", description = "用户管理")
 @Api(tags = "用户管理")
 @RestController
 @RequestMapping("/user")
@@ -49,12 +48,13 @@ public class UserController extends BaseController {
     @PostMapping("")
     public Response insertUser(@RequestBody @Validated User user) {
 
-        if (checkMobile(user.getMobile())) {
+        if (!checkMobile(user.getMobile())) {
             return Response.fail(ResponseErrorEnum.MOBILE_ERROR.getErrorDesc());
         }
-        if (checkEMail(user.getEMail())) {
+        if (!checkEMail(user.getEMail())) {
             return Response.fail(ResponseErrorEnum.EMAIL_ERROR.getErrorDesc());
         }
+        user.setDelFag(0);
         if (userService.insertUser(user)) {
             return Response.success();
         }
@@ -92,7 +92,6 @@ public class UserController extends BaseController {
         return Response.success();
     }
 
-    //TODO 暂不做分页及条件查询,默认查全部,暂未封装成result对象
     @ApiOperation(value = "查询用户/获得用户列表", notes = "查询用户", response = UserResult.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "queryParam", value = "查询条件,不传查全部", dataType = "String", paramType = "query"),
