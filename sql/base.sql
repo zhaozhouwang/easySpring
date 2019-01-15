@@ -51,3 +51,40 @@ INSERT INTO `LAB_USER` VALUES ('fbeebd5f51f54168bb7d856f0d91cd3f', 'string', 0, 
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : mysql
+ Source Server Type    : MySQL
+ Source Server Version : 80013
+ Source Host           : localhost:3306
+ Source Schema         : one
+
+ Target Server Type    : MySQL
+ Target Server Version : 80013
+ File Encoding         : 65001
+
+ Date: 15/01/2019 09:52:02
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for lab_role
+-- ----------------------------
+DROP TABLE IF EXISTS `lab_role`;
+CREATE TABLE `lab_role`  (
+                           `ROLE_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'PK',
+                           `ROLE` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色称呼',
+                           `REMARK` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+                           PRIMARY KEY (`ROLE_ID`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of lab_role
+-- ----------------------------
+INSERT INTO `lab_role` VALUES ('admin', 'admin', '超级管理员');
+
+SET FOREIGN_KEY_CHECKS = 1;
