@@ -1,17 +1,5 @@
 package com.lab.one.controller;
 
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.toolkit.StringUtils;
 import com.lab.one.controller.base.BaseController;
@@ -20,11 +8,15 @@ import com.lab.one.enums.ResponseErrorEnum;
 import com.lab.one.service.UserService;
 import com.lab.one.utils.Response;
 import com.lab.one.vo.UserResult;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -121,6 +113,22 @@ public class UserController extends BaseController {
         }
         user.setDelFag(1);
         userService.updateById(user);
+        return Response.success();
+    }
+
+    @ApiOperation(value = "excel批量导入", notes = "excel批量导入")
+    @PostMapping("/excel")
+    public Response insertUserByExcel(@RequestBody MultipartFile file) throws Exception{
+        String fileName = file.getOriginalFilename();
+        if (StringUtils.isEmpty(fileName)) {
+            return Response.fail("gun");
+        }
+        if (!fileName.toLowerCase().endsWith("xlsx")) {
+            return Response.fail("需要excel文件");
+
+        }
+        boolean isSuccess = userService.insertBatchByExcel(file);
+
         return Response.success();
     }
 }

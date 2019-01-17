@@ -1,10 +1,5 @@
 package com.lab.one.service.impl;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -13,6 +8,12 @@ import com.lab.one.entity.User;
 import com.lab.one.mapper.UserMapper;
 import com.lab.one.service.UserService;
 import com.lab.one.vo.UserResult;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -58,5 +59,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         String queryParam = "%" + param.trim() + "%";
         List<UserResult> result = baseMapper.queryUser(queryParam);
         return page.setRecords(result);
+    }
+
+    @Override
+    public boolean insertBatchByExcel(MultipartFile file) throws Exception {
+        //解析2003
+        //HSSFWorkbook workbook = new HSSFWorkbook(new NPOIFSFileSystem(file.getInputStream()));
+        //解析2017
+        XSSFWorkbook workbook = new XSSFWorkbook(file.getInputStream());
+        return false;
     }
 }
