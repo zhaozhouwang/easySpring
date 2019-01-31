@@ -72,4 +72,11 @@ public class BoxAddr {
     @TableField("ORDER_ID")
     @ApiModelProperty("关联订单ID")
     private String orderId;
+
+    /**
+     * 订单节点
+     */
+    @TableField("TRUCK_NODE")
+    @ApiModelProperty("订单节点")
+    private String truckNode;
 }

@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.lab.one.entity.User;
 import com.lab.one.vo.UserResult;
-import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -29,6 +28,5 @@ public interface UserService extends IService<User> {
      */
     Page<UserResult> findUserList(Page<UserResult> page, String param);
 
-    boolean insertBatchByExcel(MultipartFile file) throws Exception;
 }
 
