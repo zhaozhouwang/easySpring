@@ -28,20 +28,19 @@ public class TruckLocationSchedule {
     private double carLat = 8.01D;
     private double carLng = 8.01D;
 
-
     @Autowired
     BoxAddrService boxAddrService;
 
     @Scheduled(cron = "*/5 * * * * ?")
     public void carMove() {
-        carLat = carLat + 0.2;
-        carLng = carLng + 0.2;
+        carLat = carLat + 0.01;
+        carLng = carLng + 0.01;
     }
-    
+
 
     @Scheduled(cron = "*/5 * * * * ?")
     public void reportCurrentByCron() {
-        BoxAddr boxAddr = boxAddrService.selectById("9e0c5bf869464958a1f88b0bd5ac2a08");
+        BoxAddr boxAddr = boxAddrService.selectById("af7ffdef4a1e4327bb3e9f7843ad2dbc");
         double distance = LocationUtil.getDistance(Double.parseDouble(boxAddr.getLat()), Double.parseDouble(boxAddr.getLng()), carLat, carLng);
         System.out.println("默认阈值为300000,现与坐标距离为:" + distance);
         if (distance <= boxAddr.getTrigger()) {
