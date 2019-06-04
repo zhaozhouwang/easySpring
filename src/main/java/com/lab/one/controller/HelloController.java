@@ -19,11 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
 
-    @Value("${name}")
-    private String name;
+
 
     @GetMapping("/hello")
     public String sayHello() {
-        return "hello world" + name;
+        return "hello world";
     }
 }
