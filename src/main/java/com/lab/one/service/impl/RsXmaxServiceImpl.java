@@ -37,8 +37,9 @@ public class RsXmaxServiceImpl extends ServiceImpl<RsXmaxMapper, RsXmax> impleme
                 insert(xmax);
                 return xmax.getXmaxVersion();
             } else {
-                updateById(xmax);
-                return xmax.getXmaxVersion() + 1;
+                Integer version = xmax.getXmaxVersion();
+                updateById(xmax.setXmaxVersion(version + 1));
+                return xmax.getXmaxVersion();
             }
         } finally {
             lock.unlock();

@@ -3,7 +3,6 @@ package com.lab.one.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.annotations.Version;
 import com.baomidou.mybatisplus.enums.IdType;
 
 import lombok.Data;
@@ -31,7 +30,6 @@ public class RsXmax {
     private String xmaxCode;
 
     @TableField("XMAX_VERSION")
-    @Version
     private Integer xmaxVersion;
 
 
