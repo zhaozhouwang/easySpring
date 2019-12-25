@@ -12,15 +12,15 @@ name: Mr.One
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/one?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
-    username: root
-    password: root
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@192.168.10.169:1521:orcl
+    username: boxinfo
+    password: 1qaz2wsx
     hikari:
       maximum-pool-size: 10
       max-lifetime: 1800000
       connection-test-query: SELECT 1 FROM DUAL
-      idle-timeout: 10000
+      idle-timeout: 180000
 
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
