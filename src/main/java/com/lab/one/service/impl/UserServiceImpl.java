@@ -56,8 +56,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         }
         String queryParam = "%" + param.trim() + "%";
-        List<UserResult> result = baseMapper.queryUser(queryParam);
-        return page.setRecords(result);
+        //List<UserResult> result = baseMapper.queryUser(queryParam);
+        return page.setRecords(null);
     }
 
 }

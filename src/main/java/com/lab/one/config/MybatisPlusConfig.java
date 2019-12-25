@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.baomidou.mybatisplus.entity.GlobalConfiguration;
-import com.baomidou.mybatisplus.incrementer.H2KeyGenerator;
+import com.baomidou.mybatisplus.incrementer.OracleKeyGenerator;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.lab.one.utils.MybatisAutofillHandler;
 
@@ -35,7 +35,7 @@ public class MybatisPlusConfig {
     public GlobalConfiguration globalConfiguration() {
         GlobalConfiguration conf = new GlobalConfiguration();
         conf.setIdType(1);
-        conf.setKeyGenerator(new H2KeyGenerator());
+        conf.setKeyGenerator(new OracleKeyGenerator());
         conf.setMetaObjectHandler(new MybatisAutofillHandler());
         return conf;
     }

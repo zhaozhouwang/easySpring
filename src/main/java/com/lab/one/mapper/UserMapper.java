@@ -1,10 +1,7 @@
 package com.lab.one.mapper;
 
-import java.util.List;
-
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.lab.one.entity.User;
-import com.lab.one.vo.UserResult;
 
 /**
  * <p>
@@ -16,5 +13,5 @@ import com.lab.one.vo.UserResult;
  */
 public interface UserMapper extends BaseMapper<User> {
 
-    List<UserResult> queryUser(String queryParam);
+    //List<UserResult> queryUser(String queryParam);
 }
