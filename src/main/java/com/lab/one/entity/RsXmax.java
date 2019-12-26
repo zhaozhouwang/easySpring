@@ -29,6 +29,9 @@ public class RsXmax {
     @TableField("XMAX_CODE")
     private String xmaxCode;
 
+    @TableField("DATE_STR")
+    private String dateStr;
+
     @TableField("XMAX_VERSION")
     private Integer xmaxVersion;
 

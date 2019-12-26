@@ -1,6 +1,8 @@
 package com.lab.one.service.impl;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.springframework.stereotype.Service;
@@ -30,10 +32,11 @@ public class RsXmaxServiceImpl extends ServiceImpl<RsXmaxMapper, RsXmax> impleme
         lock.lock();
         try {
             Integer num;
-            RsXmax xmax = getXmaxByTypeCode(type);
+            String currentDayStr = getCurrentDayStr();
+            RsXmax xmax = getXmaxByTypeCode(type, currentDayStr);
             if (xmax == null) {
                 num = 1;
-                xmax = new RsXmax().setXmaxCode(type).setXmaxVersion(num);
+                xmax = new RsXmax().setXmaxCode(type).setXmaxVersion(num).setDateStr(currentDayStr);
                 insert(xmax);
                 return xmax.getXmaxVersion();
             } else {
@@ -46,9 +49,17 @@ public class RsXmaxServiceImpl extends ServiceImpl<RsXmaxMapper, RsXmax> impleme
         }
     }
 
-    private RsXmax getXmaxByTypeCode(String typeCode) {
+    private RsXmax getXmaxByTypeCode(String typeCode, String dayStr) {
         EntityWrapper<RsXmax> ew = new EntityWrapper<>();
         ew.eq("XMAX_CODE", typeCode);
+        ew.eq("DATE_STR", dayStr);
         return selectOne(ew);
     }
+
+
+    private String getCurrentDayStr() {
+        SimpleDateFormat format = new SimpleDateFormat("yyMMdd");
+        return format.format(new Date());
+    }
+
 }
