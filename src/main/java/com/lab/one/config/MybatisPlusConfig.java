@@ -1,5 +1,6 @@
 package com.lab.one.config;
 
+import com.baomidou.mybatisplus.incrementer.H2KeyGenerator;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +36,7 @@ public class MybatisPlusConfig {
     public GlobalConfiguration globalConfiguration() {
         GlobalConfiguration conf = new GlobalConfiguration();
         conf.setIdType(1);
-        conf.setKeyGenerator(new OracleKeyGenerator());
+        conf.setKeyGenerator(new H2KeyGenerator());
         conf.setMetaObjectHandler(new MybatisAutofillHandler());
         return conf;
     }

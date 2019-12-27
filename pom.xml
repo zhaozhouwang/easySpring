@@ -19,6 +19,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <springboot.version>1.5.16.RELEASE</springboot.version>
+        <!--<spring.version>4.3.18.RELEASE</spring.version>-->
         <okhttp.version>3.7.0</okhttp.version>
         <mybatis.plus.version>2.1.8</mybatis.plus.version>
         <shiro.version>1.3.2</shiro.version>
@@ -84,17 +85,23 @@
             <version>${fastjson.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc</artifactId>
-            <version>11.2.0.3</version>
-            <classifier>jdk16</classifier>
-        </dependency>
-        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.11</version>
         </dependency>
 
+        <!--处理2003 excel-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.16</version>
+        </dependency>
+        <!--处理2007 excel-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.16</version>
+        </dependency>
     </dependencies>
 
 
