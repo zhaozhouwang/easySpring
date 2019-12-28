@@ -1,5 +1,7 @@
 package com.lab.one.controller;
 
+import com.lab.one.entity.LabUser;
+import com.lab.one.vo.param.UserAddParam;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.toolkit.StringUtils;
 import com.lab.one.controller.base.BaseController;
-import com.lab.one.entity.User;
 import com.lab.one.enums.ResponseErrorEnum;
 import com.lab.one.service.UserService;
 import com.lab.one.utils.Response;
@@ -46,14 +47,16 @@ public class UserController extends BaseController {
 
     @ApiOperation(value = "新增用户", notes = "新增用户")
     @PostMapping("")
-    public Response insertUser(@RequestBody @Validated User user) {
+    public Response insertUser(@RequestBody @Validated UserAddParam param) {
 
-        if (!checkMobile(user.getMobile())) {
+        if (!checkMobile(param.getMobile())) {
             return Response.fail(ResponseErrorEnum.MOBILE_ERROR.getErrorDesc());
         }
-        if (!checkEMail(user.getEMail())) {
+        if (!checkEMail(param.getEMail())) {
             return Response.fail(ResponseErrorEnum.EMAIL_ERROR.getErrorDesc());
         }
+        LabUser user = new LabUser();
+        BeanUtils.copyProperties(param, user);
         user.setDelFag(0);
         if (userService.insertUser(user)) {
             return Response.success();
@@ -65,30 +68,30 @@ public class UserController extends BaseController {
     @ApiOperation(value = "获得单个用户", notes = "获得用户", response = UserResult.class)
     @GetMapping("/{id}")
     public Response findUserById(@PathVariable(value = "id") String id) {
-        User user = userService.selectActiveById(id);
-        if (user == null) {
+        LabUser labUser = userService.selectActiveById(id);
+        if (labUser == null) {
             return Response.fail(ResponseErrorEnum.USER_EXIST_ERROR.getErrorDesc());
         }
         UserResult result = new UserResult();
-        BeanUtils.copyProperties(user, result);
+        BeanUtils.copyProperties(labUser, result);
         return Response.success(result);
     }
 
 
     @ApiOperation(value = "更新用户", notes = "更新用户")
     @PutMapping("")
-    public Response updateUser(@RequestBody @Validated User user) {
-        String id = user.getId();
+    public Response updateUser(@RequestBody @Validated LabUser labUser) {
+        String id = labUser.getId();
         if (StringUtils.isEmpty(id)) {
             return Response.fail(ResponseErrorEnum.ID_EMPITY_ERROR.getErrorDesc());
         }
-        User dbUser = userService.selectActiveById(id);
-        if (dbUser == null) {
+        LabUser dbLabUser = userService.selectActiveById(id);
+        if (dbLabUser == null) {
             return Response.fail(ResponseErrorEnum.USER_EXIST_ERROR.getErrorDesc());
         }
-        BeanUtils.copyProperties(user, dbUser);
+        BeanUtils.copyProperties(labUser, dbLabUser);
         //todo 密码 salt处理
-        userService.updateById(dbUser);
+        userService.updateById(dbLabUser);
         return Response.success();
     }
 
@@ -115,12 +118,12 @@ public class UserController extends BaseController {
             return Response.fail(ResponseErrorEnum.ID_EMPITY_ERROR.getErrorDesc());
         }
 
-        User user = userService.selectById(id);
-        if (user == null) {
+        LabUser labUser = userService.selectById(id);
+        if (labUser == null) {
             return Response.fail(ResponseErrorEnum.USER_EXIST_ERROR.getErrorDesc());
         }
-        user.setDelFag(1);
-        userService.updateById(user);
+        labUser.setDelFag(1);
+        userService.updateById(labUser);
         return Response.success();
     }
 

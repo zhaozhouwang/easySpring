@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * User entity
+ * LabUser entity
  * </p>
  *
  * @author wangzhaozhou
@@ -32,7 +32,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
 @TableName("LAB_USER")
-public class User extends BaseEntity {
+public class LabUser extends BaseEntity {
 
 
     /**
@@ -47,7 +47,7 @@ public class User extends BaseEntity {
      */
     @TableField("REAL_NAME")
     @ApiModelProperty("真实姓名")
-    private String name;
+    private String realName;
 
     /**
      * 年龄
@@ -68,7 +68,6 @@ public class User extends BaseEntity {
      */
     @TableField("USERNAME")
     @ApiModelProperty("用户名,昵称")
-    @NotBlank(message = "用户名不能为空")
     private String username;
 
     /**
@@ -76,7 +75,6 @@ public class User extends BaseEntity {
      */
     @TableField("MOBILE")
     @ApiModelProperty("手机号码")
-    @NotBlank(message = "手机号码不能为空")
     private String mobile;
 
 
@@ -85,16 +83,8 @@ public class User extends BaseEntity {
      */
     @TableField("E_MAIL")
     @ApiModelProperty("邮箱")
-    @NotBlank(message = "邮箱不能为空")
     private String eMail;
 
-    /**
-     * 用户角色
-     */
-    @TableField("ROLE")
-    @ApiModelProperty("角色")
-    @NotBlank(message = "角色不能为空")
-    private String role;
 
 
     /**
@@ -102,7 +92,6 @@ public class User extends BaseEntity {
      */
     @TableField("PASSWORD")
     @ApiModelProperty("密码")
-    @NotBlank(message = "密码不能为空")
     private String password;
 
     /**
