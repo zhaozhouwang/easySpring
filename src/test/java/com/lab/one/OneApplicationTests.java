@@ -11,6 +11,7 @@ public class OneApplicationTests {
 
     @Test
     public void contextLoads() {
+        System.out.println("test commit");
     }
 
 }
