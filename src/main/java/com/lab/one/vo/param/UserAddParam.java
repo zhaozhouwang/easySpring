@@ -1,6 +1,5 @@
 package com.lab.one.vo.param;
 
-import com.baomidou.mybatisplus.annotations.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -51,7 +50,6 @@ public class UserAddParam {
      */
     @ApiModelProperty("邮箱")
     private String eMail;
-
 
 
     /**
