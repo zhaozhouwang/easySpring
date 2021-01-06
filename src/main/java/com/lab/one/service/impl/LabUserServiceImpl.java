@@ -36,4 +36,14 @@ public class LabUserServiceImpl extends ServiceImpl<LabUserMapper, LabUser> impl
         updateById(labUser.setCurrentToken(newToken));
         return newToken;
     }
+
+    @Override
+    public boolean checkTokenAccess(String token) {
+        if (StringUtils.isNotEmpty(token)) {
+            EntityWrapper<LabUser> ew = new EntityWrapper<>();
+            ew.eq("currentToken", token);
+            return selectCount(ew) > 0;
+        }
+        return false;
+    }
 }

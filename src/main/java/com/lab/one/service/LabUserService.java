@@ -12,4 +12,6 @@ public interface LabUserService extends IService<LabUser> {
 
     String userLogin(LoginParam param);
 
+    boolean checkTokenAccess(String token);
+
 }
