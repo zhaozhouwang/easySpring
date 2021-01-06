@@ -1,22 +1,19 @@
 package com.lab.one.vo;
 
-import java.util.Date;
-
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+
 /**
- * <p>
- * 用户返回类result
- * </p>
- *
  * @author wangzhaozhou
- * @date 2019-01-06
+ * @date 2021/1/6
  */
 
 @Data
 @Accessors(chain = true)
-public class UserResult {
+public class LoginParam {
 
-    private String token;
+    private String username;
+
+    private String password;
 }
