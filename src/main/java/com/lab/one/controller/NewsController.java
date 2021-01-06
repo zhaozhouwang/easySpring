@@ -29,8 +29,8 @@ public class NewsController extends BaseController {
 
     @ApiOperation(value = "查看文章列表", notes = "查看文章列表", response = LabNews.class)
     @GetMapping("/public/list")
-    public Response newsList() {
-        return Response.success(newsService.findNewsList());
+    public Response newsList(Integer size, String queryParam) {
+        return Response.success(newsService.findNewsList(size, queryParam));
     }
 
     @ApiOperation(value = "删除文章", notes = "删除文章")

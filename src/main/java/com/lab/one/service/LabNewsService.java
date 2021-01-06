@@ -12,5 +12,5 @@ import java.util.List;
 public interface LabNewsService extends IService<LabNews> {
 
 
-    List<LabNews> findNewsList();
+    List<LabNews> findNewsList(Integer size, String queryParam);
 }
