@@ -36,7 +36,7 @@ public class NewsController extends BaseController {
     @ApiOperation(value = "删除文章", notes = "删除文章")
     @ApiImplicitParam(name = "token", value = "token", required = true, paramType = "query")
     @PostMapping("/del")
-    public Response delNews(String id) {
+    public Response delNews(@RequestBody String id) {
         if (StringUtils.isNotEmpty(id)) {
             newsService.deleteById(id);
         }
