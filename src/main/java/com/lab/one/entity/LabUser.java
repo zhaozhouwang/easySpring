@@ -45,7 +45,6 @@ public class LabUser {
      */
     @TableField("username")
     @ApiModelProperty("用户名,昵称")
-    @NotBlank(message = "用户名不能为空")
     private String username;
 
 
@@ -54,8 +53,12 @@ public class LabUser {
      */
     @TableField("password")
     @ApiModelProperty("密码")
-    @NotBlank(message = "密码不能为空")
     private String password;
+
+
+    @TableField("currentToken")
+    @ApiModelProperty("currentToken")
+    private String currentToken;
 
 }
 

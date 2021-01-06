@@ -47,9 +47,9 @@ public class UserController extends BaseController {
 
     @ApiOperation(value = "登录", notes = "登录", response = UserResult.class)
     @PostMapping("/login")
-    public Response login(LoginParam param) {
-        System.out.println(param.getPassword());
-        return Response.fail(param.getUsername());
+    public Response login(@RequestBody LoginParam param) {
+        String token = userService.userLogin(param);
+        return StringUtils.isEmpty(token) ? Response.fail() : Response.success(token);
     }
 
 }
