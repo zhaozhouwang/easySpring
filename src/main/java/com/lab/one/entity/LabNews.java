@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
+import com.lab.one.utils.DateUtil;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -48,4 +49,10 @@ public class LabNews {
     @ApiModelProperty("createTime")
     private Date createTime;
 
+    @TableField(exist = false)
+    private String createTimeStr;
+
+    public String getCreateTimeStr() {
+        return DateUtil.getNormalTimeStr(createTime);
+    }
 }
