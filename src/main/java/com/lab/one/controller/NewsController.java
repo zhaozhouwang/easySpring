@@ -5,7 +5,6 @@ import com.lab.one.controller.base.BaseController;
 import com.lab.one.entity.LabNews;
 import com.lab.one.service.LabNewsService;
 import com.lab.one.utils.Response;
-import com.lab.one.vo.IdParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -37,9 +36,9 @@ public class NewsController extends BaseController {
     @ApiOperation(value = "删除文章", notes = "删除文章")
     @ApiImplicitParam(name = "token", value = "token", required = true, paramType = "query")
     @PostMapping("/del")
-    public Response delNews(@RequestBody IdParam param) {
-        if (StringUtils.isNotEmpty(param.getId())) {
-            newsService.deleteById(param.getId());
+    public Response delNews(String id) {
+        if (StringUtils.isNotEmpty(id)) {
+            newsService.deleteById(id);
         }
         return Response.success();
     }
