@@ -19,6 +19,8 @@ public class LabNewsServiceImpl extends ServiceImpl<LabNewsMapper, LabNews> impl
 
     @Override
     public List<LabNews> findNewsList() {
-        return selectList(new EntityWrapper<>());
+        EntityWrapper<LabNews> ew = new EntityWrapper<>();
+        ew.orderBy("createTime", false);
+        return selectList(ew);
     }
 }

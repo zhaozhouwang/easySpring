@@ -46,8 +46,8 @@ public class NewsController extends BaseController {
     @ApiOperation(value = "修改文章", notes = "修改文章")
     @ApiImplicitParam(name = "token", value = "token", required = true, paramType = "query")
     @PostMapping("/update")
-    public Response updateNews(LabNews news) {
-        if (StringUtils.isNotEmpty(news.getId())) {
+    public Response updateNews(@RequestBody LabNews news) {
+        if (StringUtils.isEmpty(news.getId())) {
             return Response.fail("id不能为空");
         }
         newsService.updateById(news);
@@ -68,7 +68,7 @@ public class NewsController extends BaseController {
     @ApiOperation(value = "查看文章明细", notes = "查看文章明细")
     @GetMapping("/public/detail")
     public Response addNews(String id) {
-        if (StringUtils.isNotEmpty(id)) {
+        if (StringUtils.isEmpty(id)) {
             return Response.fail("id不能为空");
         }
         return Response.success(newsService.selectById(id));
