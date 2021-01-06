@@ -58,7 +58,7 @@ public class NewsController extends BaseController {
     @ApiImplicitParam(name = "token", value = "token", required = true, paramType = "query")
     @PostMapping("/add")
     public Response addNews(@RequestBody LabNews news) {
-        if (StringUtils.isNotEmpty(news.getTitle()) || StringUtils.isEmpty(news.getNewsDetail())) {
+        if (StringUtils.isEmpty(news.getTitle()) || StringUtils.isEmpty(news.getNewsDetail())) {
             return Response.fail("标题或内容不能为空");
         }
         newsService.insert(news.setCreateTime(new Date()));

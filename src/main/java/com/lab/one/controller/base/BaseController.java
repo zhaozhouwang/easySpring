@@ -1,14 +1,13 @@
 package com.lab.one.controller.base;
 
-import java.util.regex.Pattern;
+import com.baomidou.mybatisplus.toolkit.StringUtils;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.baomidou.mybatisplus.toolkit.StringUtils;
+import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -18,6 +17,8 @@ import com.baomidou.mybatisplus.toolkit.StringUtils;
  * @author Mr.One
  * @date 2019-01-06
  */
+
+@CrossOrigin
 public class BaseController {
 
     protected final org.slf4j.Logger logger =
