@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * SwaggerConfig
  * </p>
  *
- * @author Mr.One
+ * @author simeixue
  * @date 2019-01-06
  */
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 全局异常处理类
  * </p>
  *
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2020/7/14
  */
 @ControllerAdvice

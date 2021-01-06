@@ -1,7 +1,7 @@
 package com.lab.one.handle;
 
 /**
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2020/7/14
  */
 public class AuthException extends RuntimeException {

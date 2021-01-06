@@ -5,7 +5,7 @@ package com.lab.one.utils;
  * 定位工具类,计算两个点(经纬度已知)的直线距离,单位>>>米
  * </p>
  *
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2019/1/30
  */
 public abstract class LocationUtil {

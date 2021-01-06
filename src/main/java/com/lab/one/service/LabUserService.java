@@ -5,7 +5,7 @@ import com.lab.one.entity.LabUser;
 import com.lab.one.vo.LoginParam;
 
 /**
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2021/1/6
  */
 public interface LabUserService extends IService<LabUser> {

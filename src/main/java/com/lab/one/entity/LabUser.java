@@ -1,15 +1,11 @@
 package com.lab.one.entity;
 
-import java.util.Date;
-
-import org.hibernate.validator.constraints.NotBlank;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -17,7 +13,7 @@ import lombok.experimental.Accessors;
  * LabUser entity
  * </p>
  *
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2018/12/25
  */
 

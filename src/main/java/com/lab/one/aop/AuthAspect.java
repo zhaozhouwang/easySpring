@@ -15,13 +15,13 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2020/9/23
  */
 
 @Aspect
 @Component
-public class SwmsAuthAspect {
+public class AuthAspect {
 
     private static final String REQUEST_BEGIN_TS = "beginTs";
 

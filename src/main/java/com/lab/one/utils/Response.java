@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Controllers全局统一返回类
  * </p>
  *
- * @author Mr.One
+ * @author simeixue
  * @date 2019-01-06
  */
 public class Response extends HashMap<String, Object> {

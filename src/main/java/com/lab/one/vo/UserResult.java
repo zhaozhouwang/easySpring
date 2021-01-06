@@ -1,7 +1,5 @@
 package com.lab.one.vo;
 
-import java.util.Date;
-
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -10,7 +8,7 @@ import lombok.experimental.Accessors;
  * 用户返回类result
  * </p>
  *
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2019-01-06
  */
 

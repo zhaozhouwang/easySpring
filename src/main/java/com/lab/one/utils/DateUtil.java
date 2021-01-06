@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2020/5/13
  */
 public abstract class DateUtil {

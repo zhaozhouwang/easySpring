@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 /**
- * @author wangzhaozhou
- * @date 2021/1/6
+ * @author simeixue
+ * @date 2020/01/06
  */
 
 @Api(tags = "公告管理")

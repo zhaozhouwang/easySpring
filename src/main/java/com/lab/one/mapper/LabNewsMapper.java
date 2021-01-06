@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.lab.one.entity.LabNews;
 
 /**
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2021/1/6
  */
 public interface LabNewsMapper extends BaseMapper<LabNews> {

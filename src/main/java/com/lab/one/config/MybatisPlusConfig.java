@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
  * MP Config
  * </p>
  *
- * @author Mr.One
+ * @author simeixue
  * @date 2019-01-06
  */
 

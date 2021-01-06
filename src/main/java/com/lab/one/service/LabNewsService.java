@@ -6,7 +6,7 @@ import com.lab.one.entity.LabNews;
 import java.util.List;
 
 /**
- * @author wangzhaozhou
+ * @author simeixue
  * @date 2021/1/6
  */
 public interface LabNewsService extends IService<LabNews> {

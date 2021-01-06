@@ -5,7 +5,7 @@ package com.lab.one.enums;
  * Response错误信息枚举
  * </p>
  *
- * @author Mr.One
+ * @author simeixue
  * @date 2019-01-06
  */
 public enum ResponseErrorEnum {

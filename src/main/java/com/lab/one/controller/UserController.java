@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
  * UserController CRUD
  * </p>
  *
- * @author Mr.One
- * @date 2018/12/25
+ * @author simeixue
+ * @date 2020/01/06
  */
 
 @Api(tags = "用户管理")
