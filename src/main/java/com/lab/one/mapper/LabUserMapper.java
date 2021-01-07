@@ -9,7 +9,7 @@ import com.lab.one.entity.LabUser;
  * </p>
  *
  * @author simeixue
- * @date 2018/12/25
+ * @date 2020/01/06
  */
 public interface LabUserMapper extends BaseMapper<LabUser> {
 
